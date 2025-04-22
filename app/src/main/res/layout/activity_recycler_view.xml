@@ -16,6 +16,6 @@
             android:layout_height="match_parent"
             android:padding="6sp"
             android:clipToPadding="false"
-            tools:listitem="@layout/item_img"
+            tools:listitem="@layout/grid_layout_list_item"
             />
     </RelativeLayout>

@@ -1,7 +1,6 @@
 package com.example.projectserwin
 
 import android.content.Context
-import android.media.Image
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -28,7 +27,7 @@ class ImgAdapter (
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ImgViewHolder
-    = ImgViewHolder(LayoutInflater.from(context).inflate(R.layout.item_img, parent, false))
+    = ImgViewHolder(LayoutInflater.from(context).inflate(R.layout.grid_layout_list_item, parent, false))
 
     override fun getItemCount(): Int = imgs.size
 

@@ -7,6 +7,7 @@ import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
+import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.projectserwin.databinding.ActivityRecyclerViewBinding
@@ -18,6 +19,8 @@ class RecyclerViewActivity : AppCompatActivity() {
     }
 
     private lateinit var binding: ActivityRecyclerViewBinding
+
+    private var gridLayoutManager : GridLayoutManager? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -60,8 +63,10 @@ class RecyclerViewActivity : AppCompatActivity() {
 
         val myRecyclerView = findViewById<RecyclerView>(R.id.myRV)
 
-        myRecyclerView.layoutManager = LinearLayoutManager(this)
-        myRecyclerView.setHasFixedSize(true)
+        gridLayoutManager = GridLayoutManager(applicationContext, 3, LinearLayoutManager.VERTICAL, false)
+
+        myRecyclerView?.layoutManager = gridLayoutManager
+        myRecyclerView?.setHasFixedSize(true)
         myRecyclerView.adapter = ImgAdapter(this, imgList) { selectedItem ->
             val intent = Intent(this, DetailActivity::class.java)
             intent.putExtra(INTENT_PARCELABLE, selectedItem)  // kirim data ImgData
